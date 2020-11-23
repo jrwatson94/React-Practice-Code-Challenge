@@ -5,8 +5,12 @@ class Sushi extends React.Component {
     eaten: false
   }
   clickHandler = ()=> {
-    this.setState({eaten:true})
-    this.props.buySushi(this.props.price,this.props.id)
+    if (!this.state.eaten && this.props.money >= this.props.price){
+      this.setState({eaten:true})
+      this.props.buySushi(this.props.price,this.props.id)
+    }else {
+      null
+    }
 
   }
   render(){

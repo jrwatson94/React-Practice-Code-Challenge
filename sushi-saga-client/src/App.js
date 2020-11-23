@@ -9,7 +9,7 @@ class App extends Component {
   state ={
     sushis: [],
     money: 100,
-    platesArray: []
+    platesArray: [],
   }
   buySushi = (price,id) => {
     if (this.state.money >= price){
@@ -17,8 +17,6 @@ class App extends Component {
         money: this.state.money - price,
         platesArray: this.state.platesArray.concat(id)
       })
-    }else {
-      alert("Not enough money to purchase this Sushi!")
     }
   }
   componentDidMount(){
@@ -32,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <SushiContainer sushis={this.state.sushis} buySushi ={this.buySushi}/>
+        <SushiContainer sushis={this.state.sushis} buySushi ={this.buySushi} money={this.state.money}/>
         <Table platesArray={this.state.platesArray} money={this.state.money}/>
       </div>
     );
